@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url(Calculator.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .calculator {
+            max-width: 500px;
+            margin: 210px auto;
+            background-color: #271b1b8c;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        #result {
+            width: 100%;
+            height: 40px;
+            font-weight: bold;
+            opacity: 50%;
+            font-size: 30px;
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        button {
+            height: 40px;
+            font-weight: bold;
+            font-size: 25px;
+            background-color: #ff9600;
+            border: 2px solid yellow;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+
+        button:hover {
+            color: #ff9600;
+            background-color: black;
+            border-color: white;
+            opacity: 50%;
+            box-shadow: 0 0 70px #2196f3, 0 0 70px #2196f3, 0 0 70px #2196f3;
+            transition-delay: 0.01s;
+            filter: brightness(500%);
+        }
+
+        #calcul {
+            text-align: center;
+            font-size: 30px;
+            max-width: 40%;
+            margin: auto ;
+            padding-top: 15px;
+            cursor: pointer;
+        }
+        #calcul a{
+            color: white;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .calculator {
+                margin: 100px 20px;
+                padding: 20px;
+            }
+
+            button {
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator {
+                margin: 50px 10px;
+                padding: 15px;
+            }
+
+            #result {
+                height: 30px;
+                font-size: 20px;
+            }
+
+            button {
+                height: 40px;
+                font-size: 18px;
+            }
+
+            #calcul {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <script>
+        let expression = '';
+
+        function appendNumber(number) {
+            expression += number;
+            document.getElementById('result').value = expression;
+        }
+
+        function appendOperator(operator) {
+            expression += operator;
+            document.getElementById('result').value = expression;
+        }
+
+        function clearResult() {
+            expression = '';
+            document.getElementById('result').value = '';
+        }
+        function calculate() {
+            try {
+                const result = eval(expression);
+                document.getElementById('result').value = result;
+                expression = '';
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="result" readonly>
+        <div class="buttons">
+            <button onclick="clearResult()">C</button>
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button onclick="appendOperator('+')">+</button>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button onclick="appendOperator('-')">-</button>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button onclick="appendOperator('*')">*</button>
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="appendOperator('/')">/</button>
+            <button onclick="calculate()">=</button>
+        </div>
+        <h2 id="calcul"><a href="Calculator_$.html">Calculator</a></h2>
+    </div>
+</body>
+</html>
