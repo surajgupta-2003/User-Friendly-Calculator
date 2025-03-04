@@ -10,6 +10,7 @@ A sleek and responsive interactive calculator with a modern UI, smooth hover eff
 - **Stylish UI with gradient buttons and glowing effects** 🎨
 
 ## Live Demo 🔥
+https://surajgupta-2003.github.io/User-Friendly-Calculator/
 
 ## Installation 📂
 1. Clone the repository:
