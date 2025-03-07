@@ -84,6 +84,7 @@
         }
 
         #calcul a:hover {
+            cursor: pointer;
             color: #ff9500;
             text-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
         }
@@ -133,7 +134,6 @@
     <div class="calculator">
         <input type="text" id="result" readonly>
         <div class="buttons">
-            <button onclick="clearResult()">C</button>
             <button onclick="appendNumber(7)">7</button>
             <button onclick="appendNumber(8)">8</button>
             <button onclick="appendNumber(9)">9</button>
@@ -150,7 +150,7 @@
             <button onclick="appendOperator('/')">/</button>
             <button onclick="calculate()">=</button>
         </div>
-        <h2 id="calcul"><a href="Calculator_$.html">Calculator</a></h2>
+        <h2 id="calcul"><a onclick="clearResult()">ClearResult</a></h2>
     </div>
 </body>
 </html>
